@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false|
 |email|string|null: false|
 |encrypted_password|string|null: false|
 
@@ -17,10 +17,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
-- has_many :photos, through: :members
+- has_many :users, through: :members
 - has_many :messages
 - has_many :members
 
@@ -29,14 +29,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false, foreign_key: true|
+|body|text|null: false|
+|image|text|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
 - belongs_to :user
-- 画像はActive Storageでアップロード機能を実装する→messagesテーブルと紐付ける
 
 
 ## membersテーブル
