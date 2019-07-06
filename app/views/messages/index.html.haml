@@ -1,0 +1,43 @@
+.head-info
+  グループを作成しました
+
+.side-container
+  .side-header
+    .side-header__user-name
+      yamamoto
+    =link_to "", class: "side-header__btn" do
+      = fa_icon 'cog'
+    =link_to "", class: "side-header__btn" do
+      = fa_icon 'edit'
+  .groups-box
+    = render partial: 'messages/group'
+    = render partial: 'messages/group'
+    = render partial: 'messages/group'
+
+.messages-container
+  .messages-header
+    .messages-header__group-name
+      TestGroup
+    =link_to "Edit", "#", class: "messages-header__btn"
+    .messages-header__member-name
+      Member：yamamoto
+  .messages-box
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+    = render partial: 'messages/message'
+
+  .post-box
+    %form.msg-input{:action => "#", :method => "post"}
+      .msg-imput
+        %input.msg-input__textbox{:name => "msg", :placeholder => "type a message"}
+        %label.msg-input__img-upload-btn
+          %input.msg-input__img-upload-btn--none{:type => "file"}
+          =link_to "", class: "msg-input__img-upload-btn--image" do
+            = fa_icon 'image'
+    %input.post-box__submit-btn{:type => "submit", :value => "Send"}
