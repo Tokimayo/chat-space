@@ -33,11 +33,11 @@
     = render partial: 'messages/message'
 
   .post-box
-    %form.msg-input{:action => "#", :method => "post"}
+    %form.msg-input{action: "#", method: "post"}
       .msg-imput
-        %input.msg-input__textbox{:name => "msg", :placeholder => "type a message"}
+        %input.msg-input__textbox{name: "msg", placeholder: "type a message"}
         %label.msg-input__img-upload-btn
-          %input.msg-input__img-upload-btn--none{:type => "file"}
+          %input.msg-input__img-upload-btn--none{type: "file"}
           =link_to "", class: "msg-input__img-upload-btn--image" do
             = fa_icon 'image'
-    %input.post-box__submit-btn{:type => "submit", :value => "Send"}
+    %input.post-box__submit-btn{type: "submit", value: "Send"}
