@@ -1,0 +1,9 @@
+.post-box
+  %form.msg-input{action: "#", method: "post"}
+    .msg-imput
+      %input.msg-input__textbox{name: "msg", placeholder: "type a message"}
+      %label.msg-input__img-upload-btn
+        %input.msg-input__img-upload-btn--none{type: "file"}
+        =link_to "" do
+          = fa_icon 'image', class: "msg-input__img-upload-btn--image"
+  %input.post-box__submit-btn{type: "submit", value: "Send"}

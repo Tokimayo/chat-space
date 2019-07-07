@@ -1,0 +1,14 @@
+@mixin main-contents-parts() {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+@mixin header-parts() {
+  height: 100px;
+  box-sizing: border-box;
+}
+
+@mixin messages-fixed-parts() {
+  position: fixed;
+  width: $right-width;
+}

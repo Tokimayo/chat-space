@@ -1,0 +1,12 @@
+.side-container
+  .side-header
+    .side-header__user-name
+      = current_user.name
+    =link_to edit_user_path(current_user) do
+      = fa_icon 'cog', class: "side-header__btn"
+    =link_to new_group_path do
+      = fa_icon 'edit', class: "side-header__btn"
+  .groups-box
+    = render partial: 'messages/group'
+    = render partial: 'messages/group'
+    = render partial: 'messages/group'
