@@ -7,6 +7,5 @@
     =link_to new_group_path do
       = fa_icon 'edit', class: "side-header__btn"
   .groups-box
-    = render partial: 'messages/group'
-    = render partial: 'messages/group'
-    = render partial: 'messages/group'
+    - current_user.groups.each do |group| 
+      = render partial: 'messages/group', locals: { group: group }
