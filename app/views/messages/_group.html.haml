@@ -1,5 +1,6 @@
 .group
-  .group__group-name
-    TestGroupA
-  .group__latest-message
-    学習始めます！
+  = link_to group_messages_path(group) do
+    .group__group-name
+      = group.name
+    .group__latest-message
+      = group.show_last_message

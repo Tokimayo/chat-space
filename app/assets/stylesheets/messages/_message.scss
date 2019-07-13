@@ -22,14 +22,18 @@
   }
   .groups-box{
     padding: 20px;
-    .group{
-     &__group-name{
-      font-size:15px;
-     }
-     &__latest-message{ 
-      font-size:11px;
-      margin: 5px 0 40px;
-     }
+    .group a{
+      text-decoration: none;
+      color: $white;
+    }
+    .group {
+      &__group-name{
+        font-size:15px;
+      }
+      &__latest-message{ 
+        font-size:11px;
+        margin: 5px 0 40px;
+      }
     } 
   }
 }
@@ -39,7 +43,6 @@
   width: $right-width;
   background-color: #fafafa;
   float: right;
-  height: 100%;
   .messages-header{
     @include header-parts();
     @include messages-fixed-parts();
@@ -101,7 +104,7 @@
     .msg-input{
       position: relative;
       background-color: $white;
-      width: 100%;
+      width: calc(100vw - 507px);
       &__textbox{
         padding-left:10px;
         height: 50px;
@@ -140,6 +143,9 @@
       padding: 0 30px;
       background-color: $blue;
       color: $white;
+      position: absolute;
+      top: 20px;
+      right: 40px;
     }
   }
 }

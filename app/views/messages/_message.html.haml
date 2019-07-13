@@ -1,7 +1,9 @@
 .message-box
   .message-box__user-name
-    yamamoto
+    = message.user.name
   .message-box__sent-date
-    2019/07/06(Sat) 12:34:12
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
   .message-box__message-body
-    学習始めます！
+    - if message.content.present?
+      = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
