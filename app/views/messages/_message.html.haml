@@ -2,7 +2,7 @@
   .message-box__user-name
     = message.user.name
   .message-box__sent-date
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
+    = message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S")
   .message-box__message-body
     - if message.content.present?
       = message.content
