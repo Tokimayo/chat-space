@@ -67,7 +67,7 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.messages-box').append(html)
-      $('.msg-input__textbox').val('')
+      $('form')[0].reset();
       $('.messages-box').animate({
         scrollTop: $('.messages-box')[0].scrollHeight
       },'fast');
