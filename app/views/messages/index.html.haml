@@ -7,7 +7,7 @@
     =link_to "Edit", edit_group_path(@group), class: "messages-header__btn"
     .messages-header__member-name
       Member：
-      - @users.each do |user|
+      - @group.users.each do |user|
         =user.name
   .messages-box
     = render partial: @messages
