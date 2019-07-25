@@ -38,19 +38,55 @@ $(function(){
   }
 
   function buildMessage(message){
-    var html = `<div class="message-box">
+    
+    var html1 = `<div class="message-box" data-id=${message.id}>
                   <div class="message-box__user-name">
                     ${message.user_name}
                   </div>
                   <div class="message-box__sent-date">
                     ${GetcreatedTime()}
                   </div>
-                  <div class="message-box__message-body">
-                    ${message.content}
-                  </div>
+                  <div class="message-box__message-body">`
+
+    var html2 = `${message.content}`
+
+    var html3 = `<img class="lower-message__image" src="${message.image.url}">`
+
+    var html4 =   `</div>
                 </div>`
+  
+    if(message.content && message.image.url){
+      html = html1 + html2 + html3 + html4;
+    }else if(message.content){
+      html = html1 + html2 + html4;
+    }else if(message.image.url){
+      html = html1 + html3 + html4;
+    }
     return html;
   }
+
+  var reloadMessages = function() {
+    last_message_id = $('.message-box:last').data('id');
+    $.ajax({
+      url: 'api/messages/',
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      // console.log(messages);
+        messages.forEach(function(message){
+          var insertHTML = buildMessage(message);
+          $('.messages-box').append(insertHTML);
+        })
+        $('.messages-box').animate({
+          scrollTop: $('.messages-box')[0].scrollHeight
+        },'fast');
+    })
+    .fail(function () {
+      alert('自動更新に失敗しました');
+    });
+  };
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -76,4 +112,10 @@ $(function(){
       alert('メッセージを入力してください');
     })
   })
+
+  $(window).bind("load", function(){
+    if(document.URL.match("/messages")){
+      setInterval(reloadMessages, 5000);
+    }
+  });
 });
