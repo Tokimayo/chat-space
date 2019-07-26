@@ -74,14 +74,13 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      // console.log(messages);
-        messages.forEach(function(message){
-          var insertHTML = buildMessage(message);
-          $('.messages-box').append(insertHTML);
-        })
-        $('.messages-box').animate({
-          scrollTop: $('.messages-box')[0].scrollHeight
-        },'fast');
+      messages.forEach(function(message){
+        var insertHTML = buildMessage(message);
+        $('.messages-box').append(insertHTML);
+      })
+      $('.messages-box').animate({
+        scrollTop: $('.messages-box')[0].scrollHeight
+      },'fast');
     })
     .fail(function () {
       alert('自動更新に失敗しました');
