@@ -39,29 +39,21 @@ $(function(){
 
   function buildMessage(message){
     
-    var html1 = `<div class="message-box" data-id=${message.id}>
+    var image = (message.image.url) ? `<img class="lower-message__image" src="${message.image.url}">` : "" ;
+
+    var html = `<div class="message-box" data-id=${message.id}>
                   <div class="message-box__user-name">
                     ${message.user_name}
                   </div>
                   <div class="message-box__sent-date">
                     ${GetcreatedTime()}
                   </div>
-                  <div class="message-box__message-body">`
-
-    var html2 = `${message.content}`
-
-    var html3 = `<img class="lower-message__image" src="${message.image.url}">`
-
-    var html4 =   `</div>
+                  <div class="message-box__message-body">
+                    ${message.content}
+                    ${image}
+                  </div>
                 </div>`
   
-    if(message.content && message.image.url){
-      html = html1 + html2 + html3 + html4;
-    }else if(message.content){
-      html = html1 + html2 + html4;
-    }else if(message.image.url){
-      html = html1 + html3 + html4;
-    }
     return html;
   }
 
