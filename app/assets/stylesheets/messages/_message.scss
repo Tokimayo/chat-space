@@ -94,6 +94,11 @@
         margin: 10px 0 40px;
         font-size:14px;
         color: $gray;
+        .lower-message__image{
+          width:300px;
+          display: block;
+          margin: 10px 0;
+        }
       }
     }
   }
