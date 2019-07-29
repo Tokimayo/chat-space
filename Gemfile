@@ -37,7 +37,6 @@ gem 'jbuilder', '~> 2.5'
 
 group :production do
   gem 'unicorn', '5.4.1'
-  gem 'fog-aws'
 end
 
 group :development, :test do
