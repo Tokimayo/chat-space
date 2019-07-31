@@ -7,5 +7,5 @@
     =link_to new_group_path, data: {turbolinks: false} do
       = fa_icon 'edit', class: "side-header__btn"
   .groups-box
-    - current_user.groups.each do |group| 
-      = render partial: 'messages/group', locals: { group: group }
+    - current_user.groups.each do |group|
+      = render partial: 'messages/group', locals: { group: group, group_id: group.id }

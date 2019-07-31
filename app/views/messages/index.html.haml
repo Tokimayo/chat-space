@@ -1,10 +1,10 @@
 = render partial: 'devise/shared/side-container'
 
 .messages-container
-  .messages-header
+  .messages-header{data: {Current_group_Id: @group.id }}
     .messages-header__group-name
       = @group.name
-    =link_to "Edit!!", edit_group_path(@group), class: "messages-header__btn", data: {turbolinks: false}
+    =link_to "Edit", edit_group_path(@group), class: "messages-header__btn", data: {turbolinks: false}
     .messages-header__member-name
       Member：
       - @group.users.each do |user|

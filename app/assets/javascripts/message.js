@@ -66,10 +66,15 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      var currentPageGroupId = $('.messages-header').data('current-group-id');
       messages.forEach(function(message){
-        var insertHTML = buildMessage(message);
-        $('.messages-box').append(insertHTML);
+        if(message.group_id === currentPageGroupId){
+          var insertHTML = buildMessage(message);
+          $('.messages-box').append(insertHTML);
+        }
       })
+      var lastMessage = ($('.message-box__message-body:last').find('img').length === 0) ? $('.message-box__message-body:last').text() : '画像が投稿されています';
+      $(`div[data-group-id = ${currentPageGroupId}] .group__latest-message`).text(lastMessage);
       $('.messages-box').animate({
         scrollTop: $('.messages-box')[0].scrollHeight
       },'fast');
