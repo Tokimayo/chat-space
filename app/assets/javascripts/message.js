@@ -73,11 +73,13 @@ $(function(){
           $('.messages-box').append(insertHTML);
         }
       })
+      if($('.messages-box').find().length !== 0){
       var lastMessage = ($('.message-box__message-body:last').find('img').length === 0) ? $('.message-box__message-body:last').text() : '画像が投稿されています';
       $(`div[data-group-id = ${currentPageGroupId}] .group__latest-message`).text(lastMessage);
       $('.messages-box').animate({
         scrollTop: $('.messages-box')[0].scrollHeight
       },'fast');
+    }
     })
     .fail(function () {
       alert('自動更新に失敗しました');
